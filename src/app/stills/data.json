@@ -1,0 +1,262 @@
+[
+  {
+    "category": "landscape",
+    "src": "images/l_1.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_2.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_3.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_4.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_5.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_6.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_7.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_8.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_9.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "landscape",
+    "src": "images/l_10.jpg",
+    "alt": "Landscape Photo"
+  },
+  {
+    "category": "adventure",
+    "src": "images/4.jpg",
+    "alt": "Gallery Photo"
+  },
+  {
+    "category": "adventure",
+    "src": "images/5.jpg",
+    "alt": "Gallery Photo"
+  },
+  {
+    "category": "adventure",
+    "src": "images/6.jpg",
+    "alt": "Gallery Photo"
+  },
+  {
+    "category": "adventure",
+    "src": "images/DSC01934.jpg",
+    "alt": "Gallery Photo"
+  },
+  {
+    "category": "adventure",
+    "src": "images/DSC01981.jpg",
+    "alt": "Gallery Photo"
+  },
+  {
+    "category": "portraits",
+    "src": "images/p_1.jpg",
+    "alt": "Portrait Photo"
+  },
+  {
+    "category": "portraits",
+    "src": "images/p_2.JPG",
+    "alt": "Portrait Photo"
+  },
+  {
+    "category": "portraits",
+    "src": "images/p_3.JPG",
+    "alt": "Portrait Photo"
+  },
+  {
+    "category": "portraits",
+    "src": "images/P_4.JPG",
+    "alt": "Portrait Photo"
+  },
+  {
+    "category": "portraits",
+    "src": "images/P_5.jpg",
+    "alt": "Portrait Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785988264/DSC09989_wgbukc.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785988261/DSC09952_ajonyd.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785988260/DSC09962_glehtm.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865943/DSC09991_zdjjgv.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785866708/DSC09985_l6mj9c.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865940/DSC09362_aaza5l.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865937/DSC09932_p929wu.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865937/DSC09981_xlsd6r.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09945_ijgogy.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09803_xk0u8y.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09839_gpovev.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865932/DSC09919_jproyi.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09867_fzs2x1.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09822_jg4ikd.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09369_kkyg5s.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865929/DSC09442_q3ivmu.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "https://res.cloudinary.com/dar9k7h93/image/upload/v1785865929/DSC09903_h4ogm7.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_1.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_2.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_3.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_4.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_5.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_6.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_7.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_8.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_9.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_10.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_11.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_12.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_13.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_14.jpg",
+    "alt": "Climbing Category Photo"
+  },
+  {
+    "category": "climbing",
+    "src": "images/c_15.jpg",
+    "alt": "Climbing Category Photo"
+  }
+]
