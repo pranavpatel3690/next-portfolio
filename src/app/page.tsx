@@ -34,17 +34,25 @@ export default function Home() {
         />
       </div>
 
-      <div id="hero-overlay" style={{ zIndex: 2, position: "relative", pointerEvents: "none" }}>
-        <div id="hero-name-wrap">
+      <div
+        id="hero-overlay"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          pointerEvents: "none",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div id="hero-name-wrap" style={{ textAlign: "center" }}>
           <h1 id="hero-title">Rancho Patel</h1>
           <Link href="/contact" id="hero-cta" style={{ pointerEvents: "auto" }}>
             Let's work together
           </Link>
           <p id="hero-sub">Photographer &amp; Filmmaker</p>
-        </div>
-        <div id="home-footer-overlay" style={{ zIndex: 2, position: "relative" }}>
-          <p>&copy; 2026 Rancho Patel Photography</p>
-          <p style={{ fontSize: "11px", opacity: 0.6, marginTop: "5px" }}>Use mouse wheel, arrow keys, or touch to navigate</p>
         </div>
       </div>
     </section>
