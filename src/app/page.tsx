@@ -37,15 +37,15 @@ export default function Home() {
       <div id="hero-overlay" style={{ zIndex: 2, position: "relative", pointerEvents: "none" }}>
         <div id="hero-name-wrap">
           <h1 id="hero-title">Rancho Patel</h1>
-          <p id="hero-sub">Photographer &amp; Filmmaker</p>
           <Link href="/contact" id="hero-cta" style={{ pointerEvents: "auto" }}>
             Let's work together
           </Link>
+          <p id="hero-sub">Photographer &amp; Filmmaker</p>
         </div>
-      </div>
-      <div id="home-footer-overlay" style={{ zIndex: 2, position: "relative" }}>
-        <p>&copy; 2026 Rancho Patel Photography</p>
-        <p style={{ fontSize: "11px", opacity: 0.6, marginTop: "5px" }}>Use mouse wheel, arrow keys, or touch to navigate</p>
+        <div id="home-footer-overlay" style={{ zIndex: 2, position: "relative" }}>
+          <p>&copy; 2026 Rancho Patel Photography</p>
+          <p style={{ fontSize: "11px", opacity: 0.6, marginTop: "5px" }}>Use mouse wheel, arrow keys, or touch to navigate</p>
+        </div>
       </div>
     </section>
   );
