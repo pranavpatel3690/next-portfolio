@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <section id="hero" style={{ position: "relative", overflow: "hidden" }}>
       {/* 3D Gallery Background */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, backgroundColor: "#111" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1 }}>
         <InfiniteGallery
           images={sampleImages}
           speed={1.2}
