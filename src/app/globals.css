@@ -1134,7 +1134,7 @@ body.contact-page {
 
 /* Black left half */
 #contact-left {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('images/hero_main.jpg') center/cover no-repeat;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('/images/hero_main.jpg') center/cover no-repeat;
   position: relative;
   display: flex;
   flex-direction: column;
