@@ -41,6 +41,7 @@ interface InfiniteGalleryProps {
 	blurSettings?: BlurSettings;
 	className?: string;
 	style?: React.CSSProperties;
+	onActiveImageChange?: (index: number) => void;
 }
 
 interface PlaneData {
@@ -194,6 +195,7 @@ function GalleryScene({
 	images,
 	speed = 1,
 	visibleCount = 8,
+	onActiveImageChange,
 	fadeSettings = {
 		fadeIn: { start: 0.05, end: 0.15 },
 		fadeOut: { start: 0.85, end: 0.95 },
@@ -207,6 +209,7 @@ function GalleryScene({
 	const [scrollVelocity, setScrollVelocity] = useState(0);
 	const [autoPlay, setAutoPlay] = useState(true);
 	const lastInteraction = useRef(Date.now());
+	const lastActiveIndex = useRef(-1);
 
 	const normalizedImages = useMemo(
 		() =>
@@ -451,6 +454,23 @@ function GalleryScene({
 				material.uniforms.blurAmount.value = blur;
 			}
 		});
+
+		// Detect which image is closest to the camera and notify parent
+		if (onActiveImageChange) {
+			let closestPlane = planesData.current[0];
+			let closestDist = Infinity;
+			planesData.current.forEach((plane) => {
+				const worldZ = Math.abs(plane.z - depthRange / 2);
+				if (worldZ < closestDist) {
+					closestDist = worldZ;
+					closestPlane = plane;
+				}
+			});
+			if (closestPlane && closestPlane.imageIndex !== lastActiveIndex.current) {
+				lastActiveIndex.current = closestPlane.imageIndex;
+				onActiveImageChange(closestPlane.imageIndex);
+			}
+		}
 	});
 
 	if (normalizedImages.length === 0) return null;
@@ -520,6 +540,7 @@ export default function InfiniteGallery({
 	images,
 	className = 'h-96 w-full',
 	style,
+	onActiveImageChange,
 	fadeSettings = {
 		fadeIn: { start: 0.05, end: 0.25 },
 		fadeOut: { start: 0.4, end: 0.43 },
@@ -564,6 +585,7 @@ export default function InfiniteGallery({
 					images={images}
 					fadeSettings={fadeSettings}
 					blurSettings={blurSettings}
+					onActiveImageChange={onActiveImageChange}
 				/>
 			</Canvas>
 		</div>
