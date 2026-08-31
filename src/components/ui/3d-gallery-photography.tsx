@@ -338,6 +338,13 @@ function GalleryScene({
 		// Damping
 		setScrollVelocity((prev) => prev * 0.95);
 
+		// Dynamic camera parallax based on mouse pointer
+		const targetX = state.pointer.x * 1.8;
+		const targetY = state.pointer.y * 1.2;
+		state.camera.position.x += (targetX - state.camera.position.x) * 0.05;
+		state.camera.position.y += (targetY - state.camera.position.y) * 0.05;
+		state.camera.lookAt(0, 0, 0);
+
 		// Update time uniform for all materials
 		const time = state.clock.getElapsedTime();
 		materials.forEach((material) => {

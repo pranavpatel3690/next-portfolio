@@ -5,10 +5,23 @@ import Link from "next/link";
 import InfiniteGallery from "@/components/ui/3d-gallery-photography";
 
 const sampleImages = [
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09839_gpovev.jpg', alt: 'Photo 1' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09803_xk0u8y.jpg', alt: 'Photo 2' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09867_fzs2x1.jpg', alt: 'Photo 3' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09369_kkyg5s.jpg', alt: 'Photo 4' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09839_gpovev.jpg', alt: 'Climbing 1' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09803_xk0u8y.jpg', alt: 'Climbing 2' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09867_fzs2x1.jpg', alt: 'Climbing 3' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09369_kkyg5s.jpg', alt: 'Climbing 4' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785988264/DSC09989_wgbukc.jpg', alt: 'Climbing 5' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785988261/DSC09952_ajonyd.jpg', alt: 'Climbing 6' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785988260/DSC09962_glehtm.jpg', alt: 'Climbing 7' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865943/DSC09991_zdjjgv.jpg', alt: 'Climbing 8' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785866708/DSC09985_l6mj9c.jpg', alt: 'Climbing 9' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865940/DSC09362_aaza5l.jpg', alt: 'Climbing 10' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865937/DSC09932_p929wu.jpg', alt: 'Climbing 11' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865937/DSC09981_xlsd6r.jpg', alt: 'Climbing 12' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09945_ijgogy.jpg', alt: 'Climbing 13' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865932/DSC09919_jproyi.jpg', alt: 'Climbing 14' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09822_jg4ikd.jpg', alt: 'Climbing 15' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865929/DSC09442_q3ivmu.jpg', alt: 'Climbing 16' },
+  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865929/DSC09903_h4ogm7.jpg', alt: 'Climbing 17' },
 ];
 
 export default function Home() {
