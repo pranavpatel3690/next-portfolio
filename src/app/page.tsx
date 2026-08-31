@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import InfiniteGallery from "@/components/ui/3d-gallery-photography";
 
@@ -9,14 +9,6 @@ const sampleImages = [
   { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09803_xk0u8y.jpg', alt: 'Photo 2' },
   { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09867_fzs2x1.jpg', alt: 'Photo 3' },
   { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09369_kkyg5s.jpg', alt: 'Photo 4' },
-];
-
-// Dominant colors sampled from each photo
-const photoColors = [
-  '#c8a882', // Photo 1 - warm golden brown
-  '#7a9bb5', // Photo 2 - cool blue grey
-  '#b08860', // Photo 3 - earthy amber
-  '#5a8a7a', // Photo 4 - muted teal green
 ];
 
 export default function Home() {
@@ -41,8 +33,8 @@ export default function Home() {
         />
       </div>
 
+      {/* Blended Title Layer - placed directly over canvas to allow true mix-blend-mode */}
       <div
-        id="hero-overlay"
         style={{
           position: "absolute",
           inset: 0,
@@ -52,12 +44,31 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          mixBlendMode: "exclusion",
         }}
       >
-        <div id="hero-name-wrap" style={{ textAlign: "center" }}>
-          <h1
-            id="hero-title"
-          >
+        <h1 id="hero-title">
+          Rancho Patel
+        </h1>
+      </div>
+
+      {/* Interactive CTA & Subtitle Layer */}
+      <div
+        id="hero-overlay"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 3,
+          pointerEvents: "none",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          {/* Invisible layout spacer mirroring the title style for perfect alignment */}
+          <h1 id="hero-title" style={{ visibility: "hidden" }}>
             Rancho Patel
           </h1>
           <Link href="/contact" id="hero-cta" style={{ pointerEvents: "auto" }}>
