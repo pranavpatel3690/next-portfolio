@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import Image from "next/image";
 import originalItems from "./data.json";
 import Lightbox from "@/components/Lightbox";
 
@@ -47,6 +46,14 @@ export default function Stills() {
     return () => observer.disconnect();
   }, [displayItems]);
 
+  // Add stills-page class to body on mount
+  useEffect(() => {
+    document.body.classList.add("stills-page");
+    return () => {
+      document.body.classList.remove("stills-page");
+    };
+  }, []);
+
   const openLightbox = (src, alt) => {
     const event = new CustomEvent("open-lightbox", { detail: { src, alt } });
     window.dispatchEvent(event);
@@ -62,38 +69,51 @@ export default function Stills() {
 
   return (
     <>
-      <div id="filter-nav">
-        <button
-          className={`filter-btn ${filter === "all" ? "active" : ""}`}
-          onClick={() => handleFilterClick("all")}
-        >
-          All
-        </button>
-        <button
-          className={`filter-btn ${filter === "landscape" ? "active" : ""}`}
-          onClick={() => handleFilterClick("landscape")}
-        >
-          Landscape
-        </button>
-        <button
-          className={`filter-btn ${filter === "adventure" ? "active" : ""}`}
-          onClick={() => handleFilterClick("adventure")}
-        >
-          Adventure
-        </button>
-        <button
-          className={`filter-btn ${filter === "portraits" ? "active" : ""}`}
-          onClick={() => handleFilterClick("portraits")}
-        >
-          Portraits
-        </button>
-        <button
-          className={`filter-btn ${filter === "climbing" ? "active" : ""}`}
-          onClick={() => handleFilterClick("climbing")}
-        >
-          Climbing
-        </button>
-      </div>
+      <aside id="sidebar">
+        <h2>Stills</h2>
+        <ul id="filter-list">
+          <li>
+            <button
+              className={`filter-btn ${filter === "all" ? "active" : ""}`}
+              onClick={() => handleFilterClick("all")}
+            >
+              All
+            </button>
+          </li>
+          <li>
+            <button
+              className={`filter-btn ${filter === "landscape" ? "active" : ""}`}
+              onClick={() => handleFilterClick("landscape")}
+            >
+              Landscape
+            </button>
+          </li>
+          <li>
+            <button
+              className={`filter-btn ${filter === "adventure" ? "active" : ""}`}
+              onClick={() => handleFilterClick("adventure")}
+            >
+              Adventure
+            </button>
+          </li>
+          <li>
+            <button
+              className={`filter-btn ${filter === "portraits" ? "active" : ""}`}
+              onClick={() => handleFilterClick("portraits")}
+            >
+              Portraits
+            </button>
+          </li>
+          <li>
+            <button
+              className={`filter-btn ${filter === "climbing" ? "active" : ""}`}
+              onClick={() => handleFilterClick("climbing")}
+            >
+              Climbing
+            </button>
+          </li>
+        </ul>
+      </aside>
 
       <div id="gallery-wrapper">
         <div id="gallery-track">
@@ -106,18 +126,11 @@ export default function Stills() {
               }`}
               onClick={() => openLightbox(item.src, item.alt)}
             >
-              {item.src.startsWith("https://") ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized={item.src.includes('cloudinary')} // Quick fix for external images if next.config wasn't sufficient for all cases, but it is. We'll stick to standard props.
-                />
-              ) : (
-                <img src={`/${item.src}`} alt={item.alt} loading="lazy" />
-              )}
+              <img
+                src={item.src.startsWith("https://") ? item.src : `/${item.src}`}
+                alt={item.alt}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
