@@ -20,45 +20,11 @@ const photoColors = [
 ];
 
 export default function Home() {
-  const [titleColor, setTitleColor] = useState('#ffffff');
-  const [targetColor, setTargetColor] = useState('#ffffff');
-
   useEffect(() => {
     document.body.classList.add("home-page");
     return () => {
       document.body.classList.remove("home-page");
     };
-  }, []);
-
-  // Smooth color transition using requestAnimationFrame
-  useEffect(() => {
-    let animFrame: number;
-    let current = { r: 255, g: 255, b: 255 };
-
-    const parseHex = (hex: string) => ({
-      r: parseInt(hex.slice(1, 3), 16),
-      g: parseInt(hex.slice(3, 5), 16),
-      b: parseInt(hex.slice(5, 7), 16),
-    });
-
-    const toHex = (r: number, g: number, b: number) =>
-      `#${Math.round(r).toString(16).padStart(2, '0')}${Math.round(g).toString(16).padStart(2, '0')}${Math.round(b).toString(16).padStart(2, '0')}`;
-
-    const animate = () => {
-      const target = parseHex(targetColor);
-      current.r += (target.r - current.r) * 0.05;
-      current.g += (target.g - current.g) * 0.05;
-      current.b += (target.b - current.b) * 0.05;
-      setTitleColor(toHex(current.r, current.g, current.b));
-      animFrame = requestAnimationFrame(animate);
-    };
-
-    animFrame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animFrame);
-  }, [targetColor]);
-
-  const handleActiveImageChange = useCallback((index: number) => {
-    setTargetColor(photoColors[index % photoColors.length]);
   }, []);
 
   return (
@@ -72,7 +38,6 @@ export default function Home() {
           visibleCount={12}
           falloff={{ near: 0.8, far: 14 }}
           className="h-full w-full"
-          onActiveImageChange={handleActiveImageChange}
         />
       </div>
 
@@ -92,7 +57,6 @@ export default function Home() {
         <div id="hero-name-wrap" style={{ textAlign: "center" }}>
           <h1
             id="hero-title"
-            style={{ color: titleColor, transition: 'color 0.1s ease' }}
           >
             Rancho Patel
           </h1>

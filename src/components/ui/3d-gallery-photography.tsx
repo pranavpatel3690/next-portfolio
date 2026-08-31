@@ -466,9 +466,15 @@ function GalleryScene({
 					closestPlane = plane;
 				}
 			});
-			if (closestPlane && closestPlane.imageIndex !== lastActiveIndex.current) {
-				lastActiveIndex.current = closestPlane.imageIndex;
-				onActiveImageChange(closestPlane.imageIndex);
+
+			// Only report an active image if it's meaningfully visible (near camera)
+			const normalizedDist = closestDist / (depthRange / 2);
+			const isVisible = normalizedDist < 0.25; // within 25% of center
+			const activeIndex = isVisible ? closestPlane.imageIndex : -1;
+
+			if (activeIndex !== lastActiveIndex.current) {
+				lastActiveIndex.current = activeIndex;
+				onActiveImageChange(activeIndex);
 			}
 		}
 	});
