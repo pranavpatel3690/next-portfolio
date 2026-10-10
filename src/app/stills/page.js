@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import originalItems from "./data.json";
 import Lightbox from "@/components/Lightbox";
+import FadeInScroll from "@/components/FadeInScroll";
 
 export default function Stills() {
   const [filter, setFilter] = useState("all");
@@ -70,47 +71,60 @@ export default function Stills() {
   return (
     <>
       <aside id="sidebar">
-        <h2>Stills</h2>
+        <FadeInScroll delay={0.1}>
+          <h2>Stills</h2>
+        </FadeInScroll>
+
         <ul id="filter-list">
           <li>
-            <button
-              className={`filter-btn ${filter === "all" ? "active" : ""}`}
-              onClick={() => handleFilterClick("all")}
-            >
-              All
-            </button>
+            <FadeInScroll delay={0.15}>
+              <button
+                className={`filter-btn ${filter === "all" ? "active" : ""}`}
+                onClick={() => handleFilterClick("all")}
+              >
+                All
+              </button>
+            </FadeInScroll>
           </li>
           <li>
-            <button
-              className={`filter-btn ${filter === "landscape" ? "active" : ""}`}
-              onClick={() => handleFilterClick("landscape")}
-            >
-              Landscape
-            </button>
+            <FadeInScroll delay={0.2}>
+              <button
+                className={`filter-btn ${filter === "landscape" ? "active" : ""}`}
+                onClick={() => handleFilterClick("landscape")}
+              >
+                Landscape
+              </button>
+            </FadeInScroll>
           </li>
           <li>
-            <button
-              className={`filter-btn ${filter === "adventure" ? "active" : ""}`}
-              onClick={() => handleFilterClick("adventure")}
-            >
-              Adventure
-            </button>
+            <FadeInScroll delay={0.25}>
+              <button
+                className={`filter-btn ${filter === "adventure" ? "active" : ""}`}
+                onClick={() => handleFilterClick("adventure")}
+              >
+                Adventure
+              </button>
+            </FadeInScroll>
           </li>
           <li>
-            <button
-              className={`filter-btn ${filter === "portraits" ? "active" : ""}`}
-              onClick={() => handleFilterClick("portraits")}
-            >
-              Portraits
-            </button>
+            <FadeInScroll delay={0.3}>
+              <button
+                className={`filter-btn ${filter === "portraits" ? "active" : ""}`}
+                onClick={() => handleFilterClick("portraits")}
+              >
+                Portraits
+              </button>
+            </FadeInScroll>
           </li>
           <li>
-            <button
-              className={`filter-btn ${filter === "climbing" ? "active" : ""}`}
-              onClick={() => handleFilterClick("climbing")}
-            >
-              Climbing
-            </button>
+            <FadeInScroll delay={0.35}>
+              <button
+                className={`filter-btn ${filter === "climbing" ? "active" : ""}`}
+                onClick={() => handleFilterClick("climbing")}
+              >
+                Climbing
+              </button>
+            </FadeInScroll>
           </li>
         </ul>
       </aside>

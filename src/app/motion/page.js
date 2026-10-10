@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Head from "next/head";
+import FadeInScroll from "@/components/FadeInScroll";
 
 const projects = [
   {
@@ -43,25 +43,6 @@ export default function Motion() {
     return () => document.body.classList.remove("motion-page");
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    const cards = document.querySelectorAll(".project-card");
-    cards.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
-  }, []);
-
   const openVideo = (project) => {
     setActiveVideo(project);
     if (videoRef.current) {
@@ -82,60 +63,65 @@ export default function Motion() {
     <>
       <section className="motion-hero">
         <div className="motion-hero-content">
-          <h1 className="motion-hero-title">Motion</h1>
-          <p className="motion-hero-sub">Selected Film &amp; Commercial Work</p>
+          <FadeInScroll delay={0.1}>
+            <h1 className="motion-hero-title">Motion</h1>
+          </FadeInScroll>
+          <FadeInScroll delay={0.2}>
+            <p className="motion-hero-sub">Selected Film &amp; Commercial Work</p>
+          </FadeInScroll>
         </div>
-        <div className="motion-hero-scroll">
+        <FadeInScroll delay={0.4} className="motion-hero-scroll">
           <span>Scroll to explore</span>
           <div className="motion-hero-line"></div>
-        </div>
+        </FadeInScroll>
       </section>
 
       <div id="projects-container">
-        {projects.map((project) => (
-          <article
-            key={project.number}
-            className="project-card"
-            onClick={() => openVideo(project)}
-            onMouseEnter={(e) => {
-              const video = e.currentTarget.querySelector("video");
-              if (video) video.play().catch(() => {});
-            }}
-            onMouseLeave={(e) => {
-              const video = e.currentTarget.querySelector("video");
-              if (video) {
-                video.pause();
-                video.currentTime = 0;
-              }
-            }}
-          >
-            <div className="project-number">{project.number}</div>
-            <div className="project-visual">
-              <div
-                className="project-thumb"
-                style={{ backgroundImage: `url('${project.thumb}')` }}
-              ></div>
-              <video
-                className="project-video"
-                src={project.video}
-                muted
-                loop
-                playsInline
-                preload="none"
-              ></video>
-              <div className="project-overlay">
-                <div className="project-play-btn">
-                  <svg width="18" height="20" viewBox="0 0 14 16" fill="white">
-                    <path d="M1 1l12 7-12 7V1z" />
-                  </svg>
+        {projects.map((project, index) => (
+          <FadeInScroll key={project.number} delay={index * 0.15}>
+            <article
+              className="project-card revealed"
+              onClick={() => openVideo(project)}
+              onMouseEnter={(e) => {
+                const video = e.currentTarget.querySelector("video");
+                if (video) video.play().catch(() => {});
+              }}
+              onMouseLeave={(e) => {
+                const video = e.currentTarget.querySelector("video");
+                if (video) {
+                  video.pause();
+                  video.currentTime = 0;
+                }
+              }}
+            >
+              <div className="project-number">{project.number}</div>
+              <div className="project-visual">
+                <div
+                  className="project-thumb"
+                  style={{ backgroundImage: `url('${project.thumb}')` }}
+                ></div>
+                <video
+                  className="project-video"
+                  src={project.video}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                ></video>
+                <div className="project-overlay">
+                  <div className="project-play-btn">
+                    <svg width="18" height="20" viewBox="0 0 14 16" fill="white">
+                      <path d="M1 1l12 7-12 7V1z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="project-info">
-              <span className="project-category">{project.category}</span>
-              <h2 className="project-title">{project.title}</h2>
-            </div>
-          </article>
+              <div className="project-info">
+                <span className="project-category">{project.category}</span>
+                <h2 className="project-title">{project.title}</h2>
+              </div>
+            </article>
+          </FadeInScroll>
         ))}
       </div>
 

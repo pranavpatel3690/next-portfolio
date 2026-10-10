@@ -25,6 +25,7 @@ export const metadata = {
 
 import Navbar from "@/components/Navbar";
 import PageTransition from "@/components/PageTransition";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({ children }) {
   return (
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <CustomCursor />
         <PageTransition>
           <div className="page-transition" id="page-transition"></div>
           <Navbar />
