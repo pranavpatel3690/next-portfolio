@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import originalItems from "./data.json";
 import Lightbox from "@/components/Lightbox";
 import FadeInScroll from "@/components/FadeInScroll";
-import BlurImage from "@/components/BlurImage";
 
 export default function Stills() {
   const [filter, setFilter] = useState("all");
@@ -143,10 +142,10 @@ export default function Stills() {
                 }`}
                 onClick={() => openLightbox(imageSrc, item.alt)}
               >
-                <BlurImage
+                <img
                   src={imageSrc}
                   alt={item.alt}
-                  className="w-full h-full"
+                  loading="lazy"
                 />
               </div>
             );

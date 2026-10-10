@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import FadeInScroll from "@/components/FadeInScroll";
-import BlurImage from "@/components/BlurImage";
 
 export default function About() {
   useEffect(() => {
@@ -14,10 +13,10 @@ export default function About() {
     <div id="about-body">
       <FadeInScroll direction="right" delay={0.1} className="w-full">
         <div id="about-side-portrait">
-          <BlurImage
+          <img
             src="/images/About.PNG"
             alt="Rancho Patel"
-            className="w-full h-auto rounded-xs"
+            style={{ width: "100%", height: "auto", borderRadius: "2px" }}
           />
           <p id="about-side-caption">
             Rancho Patel — Photographer &amp; Filmmaker
