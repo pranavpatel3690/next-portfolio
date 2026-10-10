@@ -1,81 +1,69 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import InfiniteGallery from "@/components/ui/3d-gallery-photography";
 
-const sampleImages = [
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09839_gpovev.jpg', alt: 'Photo 1' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865933/DSC09803_xk0u8y.jpg', alt: 'Photo 2' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09867_fzs2x1.jpg', alt: 'Photo 3' },
-  { src: 'https://res.cloudinary.com/dar9k7h93/image/upload/v1785865930/DSC09369_kkyg5s.jpg', alt: 'Photo 4' },
+const slides = [
+  "/images/hero_main.jpg",
+  "/images/l_3.jpg",
+  "/images/DSC01934.jpg",
+  "/images/c_5.jpg",
 ];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [lastActiveSlide, setLastActiveSlide] = useState<number | null>(null);
+
   useEffect(() => {
+    // Add body class for home page
     document.body.classList.add("home-page");
     return () => {
       document.body.classList.remove("home-page");
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLastActiveSlide(currentSlide);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      
+      // Clear the last-active state after transition completes (3s)
+      setTimeout(() => {
+        setLastActiveSlide(null);
+      }, 3000);
+    }, 6500);
+
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
   return (
-    <section id="hero" style={{ position: "relative", overflow: "hidden", background: "#000" }}>
-      {/* 3D Gallery Background */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1 }}>
-        <InfiniteGallery
-          images={sampleImages}
-          speed={1.2}
-          zSpacing={3}
-          visibleCount={12}
-          falloff={{ near: 0.8, far: 14 }}
-          className="h-full w-full"
-        />
+    <section id="hero">
+      <div id="hero-slideshow">
+        {slides.map((src, index) => {
+          let className = "hero-slide";
+          if (index === currentSlide) className += " active";
+          else if (index === lastActiveSlide) className += " last-active";
+          
+          return (
+            <div
+              key={src}
+              className={className}
+              style={{ backgroundImage: `url(${src})` }}
+            ></div>
+          );
+        })}
       </div>
-
-      {/* Blended Title Layer - placed directly over canvas to allow true mix-blend-mode */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
-          pointerEvents: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          mixBlendMode: "exclusion",
-        }}
-      >
-        <h1 id="hero-title">
-          Rancho Patel
-        </h1>
-      </div>
-
-      {/* Interactive CTA & Subtitle Layer */}
-      <div
-        id="hero-overlay"
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 3,
-          pointerEvents: "none",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          {/* Invisible layout spacer mirroring the title style for perfect alignment */}
-          <h1 id="hero-title" style={{ visibility: "hidden" }}>
-            Rancho Patel
-          </h1>
-          <Link href="/contact" id="hero-cta" style={{ pointerEvents: "auto" }}>
+      <div id="hero-overlay">
+        <div id="hero-name-wrap">
+          <h1 id="hero-title">Rancho Patel</h1>
+          <p id="hero-sub">Photographer &amp; Filmmaker</p>
+          <Link href="/contact" id="hero-cta">
             Let's work together
           </Link>
-          <p id="hero-sub">Photographer &amp; Filmmaker</p>
         </div>
+      </div>
+      <div id="home-footer-overlay">
+        <p>&copy; 2026 Rancho Patel Photography</p>
       </div>
     </section>
   );
