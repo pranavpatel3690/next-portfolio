@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import originalItems from "./data.json";
 import Lightbox from "@/components/Lightbox";
 import FadeInScroll from "@/components/FadeInScroll";
+import BlurImage from "@/components/BlurImage";
 
 export default function Stills() {
   const [filter, setFilter] = useState("all");
@@ -131,22 +132,25 @@ export default function Stills() {
 
       <div id="gallery-wrapper">
         <div id="gallery-track">
-          {displayItems.map((item, index) => (
-            <div
-              key={`${item.src}-${index}`}
-              data-index={index}
-              className={`gallery-item ${
-                revealedItems.has(index) ? "revealed" : ""
-              }`}
-              onClick={() => openLightbox(item.src, item.alt)}
-            >
-              <img
-                src={item.src.startsWith("https://") ? item.src : `/${item.src}`}
-                alt={item.alt}
-                loading="lazy"
-              />
-            </div>
-          ))}
+          {displayItems.map((item, index) => {
+            const imageSrc = item.src.startsWith("https://") ? item.src : `/${item.src}`;
+            return (
+              <div
+                key={`${item.src}-${index}`}
+                data-index={index}
+                className={`gallery-item ${
+                  revealedItems.has(index) ? "revealed" : ""
+                }`}
+                onClick={() => openLightbox(imageSrc, item.alt)}
+              >
+                <BlurImage
+                  src={imageSrc}
+                  alt={item.alt}
+                  className="w-full h-full"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       <Lightbox />

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import FadeInScroll from "@/components/FadeInScroll";
+import BlurImage from "@/components/BlurImage";
 
 export default function About() {
   useEffect(() => {
@@ -14,12 +14,10 @@ export default function About() {
     <div id="about-body">
       <FadeInScroll direction="right" delay={0.1} className="w-full">
         <div id="about-side-portrait">
-          <Image
+          <BlurImage
             src="/images/About.PNG"
             alt="Rancho Patel"
-            width={600}
-            height={800}
-            style={{ width: "100%", height: "auto" }}
+            className="w-full h-auto rounded-xs"
           />
           <p id="about-side-caption">
             Rancho Patel — Photographer &amp; Filmmaker
